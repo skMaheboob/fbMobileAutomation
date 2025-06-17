@@ -22,10 +22,16 @@ public class PostaComment {
 		WebDriverWait Xam = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement postButton = (WebElement) Xam.until(ExpectedConditions
 		    .elementToBeClickable(AppiumBy.accessibilityId("Make a post on Facebook")));
-		postButton.click();
-		//driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Make a post on Facebook\")")).click();
+		postButton.click(); 
 		
-		driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.LinearLayout\").instance(7)")).click();
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	WebElement element = wait.until(ExpectedConditions.elementToBeClickable(
+		    AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.LinearLayout\").instance(7)")
+		));
+
+		
+		element.click();
 		
 		driver.findElement(AppiumBy.className("android.widget.AutoCompleteTextView")).sendKeys("I am coming to Conquer");
 		
